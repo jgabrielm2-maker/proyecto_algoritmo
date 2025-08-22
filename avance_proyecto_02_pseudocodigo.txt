@@ -1,0 +1,46 @@
+
+ 
+// Pseudocódigo para registrar notas y calcular promedio
+// Avance Proyecto 02 - Algoritmo
+
+INICIO
+
+    // Declarar variables
+    DEFINIR lista_notas COMO ARREGLO VACÍO
+    DEFINIR nota COMO REAL
+    DEFINIR suma COMO REAL
+    DEFINIR promedio COMO REAL
+    DEFINIR continuar COMO CADENA
+
+    suma <- 0
+    continuar <- "si"
+
+    // Ciclo para ingresar notas
+    MIENTRAS continuar = "si"
+        IMPRIMIR "Ingrese una nota (0-100):"
+        LEER nota
+
+        // Validar que la nota sea un número y no esté vacía
+        SI nota ES NUMÉRICO Y nota >= 0 Y nota <= 100 ENTONCES
+            AGREGAR nota A lista_notas
+        SINO
+            IMPRIMIR "Error: nota inválida. Intente nuevamente."
+        FIN SI
+  // Preguntar si desea ingresar otra nota
+        IMPRIMIR "¿Desea ingresar otra nota? (si/no):"
+        LEER continuar
+    FIN MIENTRAS
+
+    // Calcular promedio
+    PARA CADA valor EN lista_notas
+        suma <- suma + valor
+    FIN PARA
+
+    SI LONGITUD(lista_notas) > 0 ENTONCES
+        promedio <- suma / LONGITUD(lista_notas)
+        IMPRIMIR "El promedio de las notas es: ", promedio
+    SINO
+        IMPRIMIR "No se ingresaron notas."
+    FIN SI
+
+FIN
